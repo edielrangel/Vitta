@@ -9,11 +9,11 @@
         <title>{{ env('APP_NAME') ?? 'Controlee' }}</title>
         <link href="{{ url('css/styles.css') }}" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-        @include('sweetalert::alert')
     </head>
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-success">
-            <a class="navbar-brand" href="index.html">{{ env('APP_NAME') ?? Vitta}}</a>
+        @include('sweetalert::alert')
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-info">
+            <a class="navbar-brand" href="{{ route('dashboard') }}">{{ env('APP_NAME') ?? Vitta}}</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
 
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -86,5 +86,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{ url('js/scripts.js') }}"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+        @yield('js')
     </body>
 </html>

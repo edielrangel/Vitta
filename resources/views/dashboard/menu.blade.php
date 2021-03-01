@@ -1,5 +1,5 @@
 <div class="sb-sidenav-menu-heading">Menu</div>
-<a class="nav-link" href="index.html">
+<a class="nav-link" href="{{ route('dashboard') }}">
     <div class="sb-nav-link-icon"><i class="far fa-play-circle"></i></div>
     Início
 </a>

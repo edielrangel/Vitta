@@ -125,6 +125,7 @@ class ComposerStaticInit0785c11e22c392c9eb679ac0c940bade
         ),
         'L' => 
         array (
+            'Lucascudo\\LaravelPtBRLocalization\\' => 34,
             'League\\MimeTypeDetection\\' => 25,
             'League\\Flysystem\\' => 17,
             'League\\CommonMark\\' => 18,
@@ -382,6 +383,10 @@ class ComposerStaticInit0785c11e22c392c9eb679ac0c940bade
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Lucascudo\\LaravelPtBRLocalization\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lucascudo/laravel-pt-br-localization/src',
+        ),
         'League\\MimeTypeDetection\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/mime-type-detection/src',
@@ -534,6 +539,7 @@ class ComposerStaticInit0785c11e22c392c9eb679ac0c940bade
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Geral\\EntidadeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Geral/EntidadeController.php',
         'App\\Http\\Controllers\\Geral\\LogController' => __DIR__ . '/../..' . '/app/Http/Controllers/Geral/LogController.php',
+        'App\\Http\\Controllers\\Saude\\PressaoArterialController' => __DIR__ . '/../..' . '/app/Http/Controllers/Saude/PressaoArterialController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -547,10 +553,12 @@ class ComposerStaticInit0785c11e22c392c9eb679ac0c940bade
         'App\\Http\\Requests\\StoreUpdateEntidadeRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreUpdateEntidadeRequest.php',
         'App\\Http\\Requests\\StoreUpdateFuncoesRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreUpdateFuncoesRequest.php',
         'App\\Http\\Requests\\StoreUpdateLogRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreUpdateLogRequest.php',
+        'App\\Http\\Requests\\StoreUpdatePressaoArterialRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreUpdatePressaoArterialRequest.php',
         'App\\Models\\Cidade' => __DIR__ . '/../..' . '/app/Models/Cidade.php',
         'App\\Models\\Entidade' => __DIR__ . '/../..' . '/app/Models/Entidade.php',
         'App\\Models\\Estado' => __DIR__ . '/../..' . '/app/Models/Estado.php',
         'App\\Models\\Log' => __DIR__ . '/../..' . '/app/Models/Log.php',
+        'App\\Models\\PressaoArterial' => __DIR__ . '/../..' . '/app/Models/PressaoArterial.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -664,6 +672,7 @@ class ComposerStaticInit0785c11e22c392c9eb679ac0c940bade
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\CidadesSeeder' => __DIR__ . '/../..' . '/database/seeders/CidadesSeeder.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\EntidadeSeeder' => __DIR__ . '/../..' . '/database/seeders/EntidadeSeeder.php',
         'Database\\Seeders\\EstadosSeeder' => __DIR__ . '/../..' . '/database/seeders/EstadosSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
@@ -2820,6 +2829,7 @@ class ComposerStaticInit0785c11e22c392c9eb679ac0c940bade
         'League\\MimeTypeDetection\\FinfoMimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/FinfoMimeTypeDetector.php',
         'League\\MimeTypeDetection\\GeneratedExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/GeneratedExtensionToMimeTypeMap.php',
         'League\\MimeTypeDetection\\MimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/MimeTypeDetector.php',
+        'Lucascudo\\LaravelPtBRLocalization\\LaravelPtBRLocalizationServiceProvider' => __DIR__ . '/..' . '/lucascudo/laravel-pt-br-localization/src/LaravelPtBRLocalizationServiceProvider.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegrationAssertPostConditions' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditions.php',

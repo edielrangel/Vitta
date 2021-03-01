@@ -1,15 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Geral;
+namespace App\Http\Controllers\Saude;
 
 use App\Http\Controllers\Controller;
-use App\Models\Entidade;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 
-class EntidadeController extends Controller
+class PressaoArterialController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +14,7 @@ class EntidadeController extends Controller
      */
     public function index()
     {
-        $entidade = Entidade::find(1)->first();
-        return view('dashboard.entidade.index', ['entidade' => $entidade]);
+        //
     }
 
     /**
@@ -73,16 +69,7 @@ class EntidadeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        if ($entidade = Entidade::find($id)) {
-            $entidade->update($data);
-            Alert::success('Ok', 'Dados Alterados com sucesso!');
-            userLog('Alterou os dados da Entidade');
-            return redirect()->route('entidade.index');
-        } else {
-            Alert::warming('Error', 'Ocorreu um erro ao atualizar. Tente novamente mais tarde.');
-            return redirect()->route('entidade.index');
-        }
+        //
     }
 
     /**

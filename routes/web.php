@@ -18,22 +18,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+/* Route::get('/dashboards', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard-old');
+})->middleware(['auth'])->name('dashboard-old'); */
 
 require __DIR__.'/auth.php';
-
-Route::get('/teste', function () {
-    return view('dashboard.index');
-});
 
 Route::post('/teste', function () {
     return view('dashboard.index');
 })->name('teste');
 
 Route::prefix('admin')->group(function(){
+    Route::get('/dashboard', function () {
+        return view('dashboard.index');
+    })->name('dashboard');
+    
     Route::resources([
-        'entidade' => EntidadeController::class
+        'entidade' => EntidadeController::class,
     ]);
 });
