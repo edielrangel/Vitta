@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Biblioteca\EditoraController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Geral\EntidadeController;
+use App\Http\Controllers\Saude\PressaoArterialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +37,7 @@ Route::prefix('admin')->group(function(){
     
     Route::resources([
         'entidade' => EntidadeController::class,
+        'saude/pressao' => PressaoArterialController::class,
+        'biblioteca/editoras' => EditoraController::class,
     ]);
 });

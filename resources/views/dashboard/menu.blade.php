@@ -11,11 +11,11 @@
 </a>
 <div class="collapse" id="collapseSaude" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
     <nav class="sb-sidenav-menu-nested nav">
-        <a class="nav-link" href="layout-static.html">Pressão Arterial</a>
-        <a class="nav-link" href="layout-static.html">Peso</a>
-        <a class="nav-link" href="layout-sidenav-light.html">Consultas</a>
-        <a class="nav-link" href="layout-sidenav-light.html">Exames</a>
-        <a class="nav-link" href="layout-sidenav-light.html">Outros Documentos</a>
+        <a class="nav-link" href="{{ route('pressao.index') }}">Pressão Arterial</a>
+        <a class="nav-link" href="#">Peso</a>
+        <a class="nav-link" href="#">Consultas</a>
+        <a class="nav-link" href="#">Exames</a>
+        <a class="nav-link" href="#">Outros Documentos</a>
     </nav>
 </div>
 
@@ -26,11 +26,11 @@
 </a>
 <div class="collapse" id="collapseBiblioteca" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
     <nav class="sb-sidenav-menu-nested nav">
-        <a class="nav-link" href="layout-static.html">Livros</a>
-        <a class="nav-link" href="layout-sidenav-light.html">Autores</a>
-        <a class="nav-link" href="layout-sidenav-light.html">Editoras</a>
-        <a class="nav-link" href="layout-static.html">Artigos</a>
-        <a class="nav-link" href="layout-sidenav-light.html">Citações</a>
+        <a class="nav-link" href="#">Livros</a>
+        <a class="nav-link" href="#">Autores</a>
+        <a class="nav-link" href="{{ route('editoras.index') }}">Editoras</a>
+        <a class="nav-link" href="#">Artigos</a>
+        <a class="nav-link" href="#">Citações</a>
     </nav>
 </div>
 
@@ -41,9 +41,9 @@
 </a>
 <div class="collapse" id="collapseColecoes" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
     <nav class="sb-sidenav-menu-nested nav">
-        <a class="nav-link" href="layout-static.html">Quadro</a>
-        <a class="nav-link" href="layout-sidenav-light.html">Gravura</a>
-        <a class="nav-link" href="layout-sidenav-light.html">Escultura</a>
+        <a class="nav-link" href="#">Quadro</a>
+        <a class="nav-link" href="#">Gravura</a>
+        <a class="nav-link" href="#">Escultura</a>
     </nav>
 </div>
 

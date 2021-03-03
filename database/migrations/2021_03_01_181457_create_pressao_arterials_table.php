@@ -18,8 +18,8 @@ class CreatePressaoArterialsTable extends Migration
             $table->date('dataAfericao');
             $table->string('localAfericao')->nullable();
             $table->string('observacao')->nullable();
-            $table->int('pas')->comment('Refere-se a Alta (Sistólica)');
-            $table->int('pad')->comment('Refere-se a Baixa (diastólica)');
+            $table->integer('pas')->comment('Refere-se a Alta (Sistólica)');
+            $table->integer('pad')->comment('Refere-se a Baixa (diastólica)');
             $table->timestamps();
         });
     }
