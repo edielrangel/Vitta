@@ -14,7 +14,13 @@ class LivroController extends Controller
      */
     public function index()
     {
-        //
+        
+        /* $url = 'https://www.googleapis.com/books/v1/volumes?q=isbn:9786557170229';
+        $response = file_get_contents($url);
+        $newsData = json_decode($response);
+        $dados = response()->json($newsData)->items[0]->volumeInfo->title; */
+        
+
     }
 
     /**
