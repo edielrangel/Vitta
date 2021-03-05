@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEditorasTable extends Migration
+class CreateAutorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateEditorasTable extends Migration
      */
     public function up()
     {
-        Schema::create('editoras', function (Blueprint $table) {
+        Schema::create('autors', function (Blueprint $table) {
             $table->id();
-            $table->string('editora');
+            $table->string('autor')->uniqid;
+            $table->string('citacao')->nullable()->comment('Conforme normas da Abnt');
             $table->string('slug');
             $table->timestamps();
         });
@@ -28,6 +29,6 @@ class CreateEditorasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('editoras');
+        Schema::dropIfExists('autors');
     }
 }

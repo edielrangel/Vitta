@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Biblioteca;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdateEditoraRequest;
 use App\Models\Editora;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class EditoraController extends Controller
 {
@@ -26,18 +29,29 @@ class EditoraController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.biblioteca.editora.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreUpdateEditoraRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdateEditoraRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($data['editora']);
+        
+        if (Editora::create($data)) {
+            Alert::success('Ok', 'Editora Cadastrada com Sucesso!');
+            userLog('Cadastrou a Editora '.$data['editora']);
+            return redirect()->route('editoras.index');
+        } else {
+            Alert::warning('Error', 'Erro ao cadastrar a Editora. Tente novamente mais tarde!');
+            return redirect()->route('editoras.index');
+        }
+        
     }
 
     /**
@@ -48,7 +62,7 @@ class EditoraController extends Controller
      */
     public function show($id)
     {
-        //
+        return redirect()->route('editoras.index');
     }
 
     /**
@@ -59,7 +73,13 @@ class EditoraController extends Controller
      */
     public function edit($id)
     {
-        //
+        if ($editora = Editora::find($id)) {
+            return view('dashboard.biblioteca.editora.edit', ['editora' => $editora]);
+        } else {
+            Alert::warning('Error', 'Erro ao carregar os dados da Editora. Tente novamente mais tarde!');
+            return redirect()->route('editoras.index');
+        }
+        
     }
 
     /**
@@ -71,7 +91,17 @@ class EditoraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($editora = Editora::find($id)) {
+            $data = $request->all();
+            $data['slug'] = Str::slug($data['editora']);
+            $editora->update($data);
+            Alert::success('Ok', 'Editora Atualizada com Sucesso!');
+            userLog('Atualizou os dados da Editora '.$data['editora']);
+            return redirect()->route('editoras.index');
+        } else {
+            Alert::warning('Error', 'Erro ao carregar os dados da Editora. Tente novamente mais tarde!');
+            return redirect()->route('editoras.index');
+        }
     }
 
     /**
@@ -82,6 +112,14 @@ class EditoraController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if ($editora = Editora::find($id)) {
+            $editora->delete();
+            Alert::success('Ok', 'Editora '.$editora->editora.' foi excluída com Sucesso!');
+            userLog('Excluiu a Editora '.$editora->editora);
+            return redirect()->route('editoras.index');
+        } else {
+            Alert::warning('Error', 'Erro ao carregar os dados da Editora. Tente novamente mais tarde!');
+            return redirect()->route('editoras.index');
+        }
     }
 }

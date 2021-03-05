@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Biblioteca\AutorController;
 use App\Http\Controllers\Biblioteca\EditoraController;
+use App\Http\Controllers\Biblioteca\LivroController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Geral\EntidadeController;
 use App\Http\Controllers\Saude\PressaoArterialController;
@@ -39,5 +41,7 @@ Route::prefix('admin')->group(function(){
         'entidade' => EntidadeController::class,
         'saude/pressao' => PressaoArterialController::class,
         'biblioteca/editoras' => EditoraController::class,
+        'biblioteca/autores' => AutorController::class,
+        'biblioteca/livros' => LivroController::class,
     ]);
 });

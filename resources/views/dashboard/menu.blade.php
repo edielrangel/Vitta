@@ -26,8 +26,8 @@
 </a>
 <div class="collapse" id="collapseBiblioteca" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
     <nav class="sb-sidenav-menu-nested nav">
-        <a class="nav-link" href="#">Livros</a>
-        <a class="nav-link" href="#">Autores</a>
+        <a class="nav-link" href="{{ route('livros.index') }}">Livros</a>
+        <a class="nav-link" href="{{ route('autores.index') }}">Autores</a>
         <a class="nav-link" href="{{ route('editoras.index') }}">Editoras</a>
         <a class="nav-link" href="#">Artigos</a>
         <a class="nav-link" href="#">Citações</a>

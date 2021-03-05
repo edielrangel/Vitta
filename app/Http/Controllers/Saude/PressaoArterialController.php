@@ -43,7 +43,7 @@ class PressaoArterialController extends Controller
         $data = $request->all();
         if ($pressao = PressaoArterial::create($data)) {
             Alert::success('Ok', 'Dados Gravados com Sucesso');
-            userLog('Dados sobre aferiação de pressão arterial foram gravados com sucesso.');
+            userLog('Dados sobre aferição de pressão arterial foram gravados com sucesso.');
             return redirect()->route('pressao.index');
         } else {
             Alert::warning('Error', 'Erro ao gravar dados. Tente novamente mais tarde.');
@@ -94,7 +94,7 @@ class PressaoArterialController extends Controller
             $data = $request->all();
             $pressao->update($data);
             Alert::success('Ok', 'Dados Gravados com Sucesso');
-            userLog('Dados sobre aferiação de pressão arterial foram Atualizados com sucesso.');
+            userLog('Dados sobre aferição de pressão arterial foram Atualizados com sucesso.');
             return redirect()->route('pressao.index');
         } else {
             Alert::warning('Error', 'Dados não encontrados. Tente novamente mais tarde.');
@@ -113,7 +113,7 @@ class PressaoArterialController extends Controller
         if ($pressao = PressaoArterial::find($id)) {
             $pressao->delete();
             Alert::success('Ok', 'Dados Excluídos com Sucesso');
-            userLog('Dados sobre aferiação de pressão arterial foram Deletados com sucesso.');
+            userLog('Dados sobre aferição de pressão arterial foram Deletados com sucesso.');
             return redirect()->route('pressao.index');
         } else {
             Alert::warning('Error', 'Dados não encontrados. Tente novamente mais tarde.');
