@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Biblioteca\ArtigoController;
+use App\Http\Controllers\Biblioteca\AutorArtigoController;
 use App\Http\Controllers\Biblioteca\AutorController;
+use App\Http\Controllers\Biblioteca\AutorLivroController;
 use App\Http\Controllers\Biblioteca\EditoraController;
 use App\Http\Controllers\Biblioteca\LivroController;
 use Illuminate\Support\Facades\Route;
@@ -43,5 +46,9 @@ Route::prefix('admin')->group(function(){
         'biblioteca/editoras' => EditoraController::class,
         'biblioteca/autores' => AutorController::class,
         'biblioteca/livros' => LivroController::class,
+        'biblioteca/autorLivro' => AutorLivroController::class,
+        'biblioteca/artigos' => ArtigoController::class,
+        'biblioteca/autorArtigo' => AutorArtigoController::class,
     ]);
+    
 });

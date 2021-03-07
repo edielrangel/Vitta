@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUpdateAutorRequest extends FormRequest
+class StoreUpdateAutorArtigoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class StoreUpdateAutorRequest extends FormRequest
     public function rules()
     {
         return [
-            'autor' => 'required|min:5'
+            //
         ];
     }
 }

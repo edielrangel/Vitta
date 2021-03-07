@@ -6,11 +6,11 @@
 
 @section('content')
     <div class="container-fluid">
-        <h1 class="mt-4"><i class="fas fa-user-edit mr-2"></i>Autores</h1>
+        <h1 class="mt-4"><i class="fas fa-book mr-2"></i>Livros</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
             <li class="breadcrumb-item active"><a href="{{ route('dashboard') }}">Biblioteca</a></li>
-            <li class="breadcrumb-item active">Autores</li>
+            <li class="breadcrumb-item active">Livros</li>
         </ol>
         {{-- <div class="card mb-4">
             <div class="card-body">
@@ -20,36 +20,40 @@
         </div> --}}
         <div class="card mb-4">
             <div class="card-header">
-                <i class="fas fa-user-edit mr-1"></i>
-                Autores
+                <i class="fas fa-book mr-1"></i>
+                Livros
             </div>
             <div class="card-body">
-                <div class="mb-2"><a class="btn btn-primary btn-sm" href="{{ route('autores.create') }}" role="button">
-                    <i class="fas fa-plus"></i> Adicionar Autor(a)</a>
+                <div class="mb-2"><a class="btn btn-primary btn-sm" href="{{ route('livros.create') }}" role="button">
+                    <i class="fas fa-plus mr-1"></i>Adicionar Livro</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>COD</th>
+                                <th>Título</th>
                                 <th>Autor(a)</th>
-                                <th>Livros</th>
-                                <th>Artigos</th>
+                                <th>CDD</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($autores as $autor)
+                            @foreach ($livros as $livro)
                                 <tr>
-                                    <td>{{ $autor->id }}</td>
-                                    <td>{{ $autor->autor }}</td>
-                                    <td>{{ livrosAutor($autor->id) }}</td>
-                                    <td>{{ artigosAutor($autor->id) }}</td>
+                                    <td>{{ $livro->id }}</td>
+                                    <td>{{ $livro->titulo }}</td>
                                     <td>
-                                        <form id="delete-editora-{{ $autor->id }}" action="{{ route('autores.destroy', $autor->id) }}" method="post">
+                                        @foreach ($autores = autorToLivro($livro->id) as $autor)
+                                            {{ $autor->citacao }}. 
+                                        @endforeach
+                                    </td>
+                                    <td>{{ $livro->cdd }}</td>
+                                    <td>
+                                        <form id="delete-editora-{{ $livro->id }}" action="{{ route('livros.destroy', $livro->id) }}" method="post">
                                             {{csrf_field()}}
                                             {{method_field('delete')}}
-                                            <a class="btn btn-warning btn-sm" href="{{ route('autores.edit', $autor->id) }}" role="button">
+                                            <a class="btn btn-warning btn-sm" href="{{ route('livros.edit', $livro->id) }}" role="button">
                                                 <i class="fas fa-info-circle mr-1"></i>Detalhar</a>
                                             <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt mr-1"></i>Excluir</button>
                                         </form>
@@ -58,7 +62,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $autores->links() }}
+                    {{ $livros->links() }}
                 </div>
             </div>
         </div>

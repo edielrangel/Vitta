@@ -24,20 +24,14 @@ class StoreUpdateLivroRequest extends FormRequest
     public function rules()
     {
         return [
-            'titulo',
-            'subtitulo',
-            'edicao',
-            'cidade',
-            'ano',
-            'notas',
-            'paginas',
-            'volume',
-            'isbn',
-            'cdd',
-            'cdu',
-            'categoria',
-            'descricao',
-            'observacao'
+            'titulo' => 'required|min:5',
+            'edicao' => 'required',
+            'cidade' => 'required|min:2',
+            'ano' => 'required|integer',
+            'paginas' => 'integer|min:2',
+            'volume' => 'max:5',
+            'isbn' => 'required|numeric|unique:livros,isbn',
+            'cdd' => 'required',
         ];
     }
 }

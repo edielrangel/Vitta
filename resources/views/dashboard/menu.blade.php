@@ -26,24 +26,27 @@
 </a>
 <div class="collapse" id="collapseBiblioteca" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
     <nav class="sb-sidenav-menu-nested nav">
-        <a class="nav-link" href="{{ route('livros.index') }}">Livros</a>
-        <a class="nav-link" href="{{ route('autores.index') }}">Autores</a>
         <a class="nav-link" href="{{ route('editoras.index') }}">Editoras</a>
-        <a class="nav-link" href="#">Artigos</a>
+        <a class="nav-link" href="{{ route('autores.index') }}">Autores</a>
+        <a class="nav-link" href="{{ route('livros.index') }}">Livros</a>
+        <a class="nav-link" href="{{ route('artigos.index') }}">Artigos</a>
         <a class="nav-link" href="#">Citações</a>
+        <a class="nav-link" href="#">Dicionário de Termos</a>
     </nav>
 </div>
 
 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseColecoes" aria-expanded="false" aria-controls="collapseLayouts">
     <div class="sb-nav-link-icon"><i class="fas fa-palette"></i></div>
-    Coleções
+    Inventário
     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 </a>
 <div class="collapse" id="collapseColecoes" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-    <nav class="sb-sidenav-menu-nested nav">
-        <a class="nav-link" href="#">Quadro</a>
-        <a class="nav-link" href="#">Gravura</a>
+    <nav class="sb-sidenav-menu-nested nav">        
+        <a class="nav-link" href="#">Correspendência</a>
         <a class="nav-link" href="#">Escultura</a>
+        <a class="nav-link" href="#">Gravura</a>
+        <a class="nav-link" href="#">Quadro</a>
+        <a class="nav-link" href="#">Outros</a>
     </nav>
 </div>
 

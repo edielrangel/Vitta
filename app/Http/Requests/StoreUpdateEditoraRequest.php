@@ -24,7 +24,7 @@ class StoreUpdateEditoraRequest extends FormRequest
     public function rules()
     {
         return [
-            'editora' => 'required|min:5'
+            'editora' => 'required|min:5|unique:editoras,editora'
         ];
     }
 }
