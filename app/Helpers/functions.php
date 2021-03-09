@@ -3,9 +3,16 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-function userLog($acao){
+function userLog($acao, $tipo){
     $now = date("Y-m-d H:i:s");
-    DB::table('logs')->insert(['user_id' => Auth::user()->id, 'acao' => $acao, 'created_at' => $now, 'updated_at' => $now]);
+    DB::table('logs')->insert(['user_id' => Auth::user()->id, 'acao' => $acao, 'tipo_acao' =>$tipo, 'created_at' => $now, 'updated_at' => $now]);
+}
+
+function livroCitacoes($id_livro){
+    $nCitacoes = DB::table('citacao_livros')
+        ->where('livro_id', '=', $id_livro)
+        ->count('livro_id');
+    return $nCitacoes;
 }
 
 function autorToLivro($livro_id){
@@ -23,6 +30,13 @@ function livrosAutor($autor_id){
             ->where('autor_id', '=', $autor_id)
             ->count('autor_id');
     return $nLivros;
+}
+
+function artigoCitacoes($id_artigo){
+    $nCitacoes = DB::table('citacao_artigos')
+        ->where('artigo_id', '=', $id_artigo)
+        ->count('artigo_id');
+    return $nCitacoes;
 }
 
 function autorToArtigo($artigo_id){

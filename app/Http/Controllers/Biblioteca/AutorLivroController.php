@@ -46,7 +46,7 @@ class AutorLivroController extends Controller
                         ->where('livro_id', '=', $dados['livro_id'])->first()) {
             
             if (AutorLivro::create($dados)) {
-                userLog('Adicionou autor a Livro');
+                userLog('Adicionou autor a Livro '.$dados['livro_id'], 'create');
                 Alert::success('Ok', 'Autor adicionado comsucesso!');
                 return redirect()->route('livros.edit', $dados['livro_id']);
             } else {
@@ -113,7 +113,7 @@ class AutorLivroController extends Controller
         if ($autorLivro = AutorLivro::find($id)) {
             $autorLivro->delete();
             Alert::success('Ok', 'Removido com Sucesso!');
-            userLog('Removeu Autor de Livro');
+            userLog('Removeu Autor de Livro '.$autorLivro->livro_id, 'delete');
             return redirect()->route('livros.edit', $autorLivro['livro_id']);
         } else {
             Alert::warning('Error', 'Erro ao carregar os dados do Livro. Tente novamente mais tarde!');

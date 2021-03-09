@@ -51,7 +51,7 @@ class AutorController extends Controller
 
         if (Autor::create($data)) {
             Alert::success('Ok', 'Autor(a) Cadastrada(a) com Sucesso!');
-            userLog('Cadastrou o/a Autor(a)  '.$data['autor']);
+            userLog('Cadastrou o/a Autor(a)  '.$data['autor'], 'create');
             return redirect()->route('autores.index');
         } else {
             Alert::warning('Error', 'Erro ao cadastrar o/a Autor(a). Tente novamente mais tarde!');
@@ -108,7 +108,7 @@ class AutorController extends Controller
 
             $autor->update($data);
             Alert::success('Ok', 'Autor(a) Atualizado(a) com Sucesso!');
-            userLog('Atualizou os dados do(a) Autor(a) '.$data['autor']);
+            userLog('Atualizou os dados do(a) Autor(a) '.$data['autor'], 'update');
             return redirect()->route('autores.index');
         } else {
             Alert::warning('Error', 'Erro ao carregar os dados do(a) Autor(a). Tente novamente mais tarde!');
@@ -126,7 +126,7 @@ class AutorController extends Controller
     {
         if ($autor = Autor::find($id)) {
             $autor->delete();
-            userLog('Excluiu o/a Autor(a) '.$autor->autor);
+            userLog('Excluiu o/a Autor(a) '.$autor->autor, 'delete');
             Alert::success('Ok', 'Autor(a) '.$autor->autor.' foi excluído(a) com Sucesso!');
             return redirect()->route('autores.index');
         } else {

@@ -30,8 +30,8 @@
         <a class="nav-link" href="{{ route('autores.index') }}">Autores</a>
         <a class="nav-link" href="{{ route('livros.index') }}">Livros</a>
         <a class="nav-link" href="{{ route('artigos.index') }}">Artigos</a>
-        <a class="nav-link" href="#">Citações</a>
-        <a class="nav-link" href="#">Dicionário de Termos</a>
+        <a class="nav-link" href="{{ route('citacoes.index') }}">Citações</a>
+        <a class="nav-link" href="{{ route('dicionario.index') }}">Dicionário de Termos</a>
     </nav>
 </div>
 

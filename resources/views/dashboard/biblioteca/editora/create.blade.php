@@ -9,8 +9,9 @@
         <h1 class="mt-4"><i class="fas fa-home mr-2"></i>Editoras</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item active"><a href="{{ route('dashboard') }}">Biblioteca</a></li>
-            <li class="breadcrumb-item active">Editoras</li>
+            <li class="breadcrumb-item active"><a href="{{ route('bibliotecas.index') }}">Biblioteca</a></li>
+            <li class="breadcrumb-item active"><a href="{{ route('editoras.index') }}">Editoras</a></li>
+            <li class="breadcrumb-item active">Adicionar Editoras</li>
         </ol>
         <div class="card mb-4">
             <div class="card-header">

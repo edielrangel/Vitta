@@ -43,7 +43,7 @@ class ArtigoController extends Controller
         $data = $request->all();
         if ($artigo = Artigo::create($data)) {
             Alert::success('Ok', 'O Artigo '.$data['titulo'].' foi cadastrado com sucesso. Agora vincule o(s) autores(as).');
-            userLog('Cadastrou o Artigo '.$data['titulo']);
+            userLog('Cadastrou o Artigo '.$data['titulo'], 'create');
             return redirect()->route('autorArtigo.show', $artigo->id);
         } else {
             Alert::warning('Error', 'Ocorreu um erro ao tentar cadastrar o Artigo. Tente novamente mais tarde.');
@@ -59,7 +59,7 @@ class ArtigoController extends Controller
      */
     public function show($id)
     {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -89,7 +89,17 @@ class ArtigoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        if ($artigo = Artigo::find($id)) {
+            $artigo->update($data);
+            userLog('Atualizou os dados do Artigo: '.$data['titulo'], 'update');
+            Alert::success('Ok', 'Dados do Artigo atualizados com sucesso!');
+            return redirect()->route('artigos.edit', $id);
+        } else {
+            Alert::error('Error', 'Não foi possível atualizar dados. Tente novamente mais tarde.');
+            return redirect()->back();
+        }
+        
     }
 
     /**
@@ -100,6 +110,7 @@ class ArtigoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Alert::info('Atenção', 'Esta ação ainda não está disponível.');
+        return redirect()->back();
     }
 }

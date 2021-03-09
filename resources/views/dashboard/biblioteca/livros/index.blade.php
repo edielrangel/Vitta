@@ -9,7 +9,7 @@
         <h1 class="mt-4"><i class="fas fa-book mr-2"></i>Livros</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item active"><a href="{{ route('dashboard') }}">Biblioteca</a></li>
+            <li class="breadcrumb-item active"><a href="{{ route('bibliotecas.index') }}">Biblioteca</a></li>
             <li class="breadcrumb-item active">Livros</li>
         </ol>
         {{-- <div class="card mb-4">

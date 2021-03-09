@@ -18,7 +18,7 @@ class AutorArtigoController extends Controller
      */
     public function index()
     {
-        //
+        return redirect()->route('artigos.index');
     }
 
     /**
@@ -28,7 +28,7 @@ class AutorArtigoController extends Controller
      */
     public function create()
     {
-        //
+        return redirect()->route('artigos.index');
     }
 
     /**
@@ -45,7 +45,7 @@ class AutorArtigoController extends Controller
                         ->where('artigo_id', '=', $dados['artigo_id'])->first()) {
             
             if (AutorArtigo::create($dados)) {
-                userLog('Adicionou autor a Artigo');
+                userLog('Adicionou autor a Artigo '.$dados['artigo_id'], 'create');
                 Alert::success('Ok', 'Autor adicionado comsucesso!');
                 return redirect()->route('artigos.edit', $dados['artigo_id']);
             } else {
@@ -85,7 +85,7 @@ class AutorArtigoController extends Controller
      */
     public function edit($id)
     {
-        //
+        return redirect()->route('artigos.index');
     }
 
     /**
@@ -97,7 +97,7 @@ class AutorArtigoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->route('artigos.index');
     }
 
     /**
@@ -111,7 +111,7 @@ class AutorArtigoController extends Controller
         if ($autorArtigo = AutorArtigo::find($id)) {
             $autorArtigo->delete();
             Alert::success('Ok', 'Removido com Sucesso!');
-            userLog('Removeu Autor de Artigo');
+            userLog('Removeu Autor de Artigo '.$autorArtigo->artigo_id, 'delete');
             return redirect()->route('artigos.edit', $autorArtigo['artigo_id']);
         } else {
             Alert::warning('Error', 'Erro ao carregar os dados do Artigo. Tente novamente mais tarde!');

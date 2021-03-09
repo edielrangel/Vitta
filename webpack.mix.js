@@ -11,8 +11,12 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
+/* mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
     require('postcss-import'),
     require('tailwindcss'),
     require('autoprefixer'),
-]);
+]); */
+
+mix
+.js('resources/js/tagsinput.js', 'public/js/tagsinput.js')
+.styles('resources/css/tagsinput.css', 'public/css/tagsinput.css');

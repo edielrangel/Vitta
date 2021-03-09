@@ -45,7 +45,7 @@ class EditoraController extends Controller
         
         if (Editora::create($data)) {
             Alert::success('Ok', 'Editora Cadastrada com Sucesso!');
-            userLog('Cadastrou a Editora '.$data['editora']);
+            userLog('Cadastrou a Editora '.$data['editora'], 'create');
             return redirect()->route('editoras.index');
         } else {
             Alert::warning('Error', 'Erro ao cadastrar a Editora. Tente novamente mais tarde!');
@@ -96,7 +96,7 @@ class EditoraController extends Controller
             $data['slug'] = Str::slug($data['editora']);
             $editora->update($data);
             Alert::success('Ok', 'Editora Atualizada com Sucesso!');
-            userLog('Atualizou os dados da Editora '.$data['editora']);
+            userLog('Atualizou os dados da Editora '.$data['editora'], 'update');
             return redirect()->route('editoras.index');
         } else {
             Alert::warning('Error', 'Erro ao carregar os dados da Editora. Tente novamente mais tarde!');
@@ -115,7 +115,7 @@ class EditoraController extends Controller
         if ($editora = Editora::find($id)) {
             $editora->delete();
             Alert::success('Ok', 'Editora '.$editora->editora.' foi excluída com Sucesso!');
-            userLog('Excluiu a Editora '.$editora->editora);
+            userLog('Excluiu a Editora '.$editora->editora, 'delete');
             return redirect()->route('editoras.index');
         } else {
             Alert::warning('Error', 'Erro ao carregar os dados da Editora. Tente novamente mais tarde!');
