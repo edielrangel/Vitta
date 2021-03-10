@@ -30,6 +30,7 @@
         <a class="nav-link" href="{{ route('autores.index') }}">Autores</a>
         <a class="nav-link" href="{{ route('livros.index') }}">Livros</a>
         <a class="nav-link" href="{{ route('artigos.index') }}">Artigos</a>
+        <a class="nav-link" href="{{ route('resenhas.index') }}">Resenhas</a>
         <a class="nav-link" href="{{ route('citacoes.index') }}">Citações</a>
         <a class="nav-link" href="{{ route('dicionario.index') }}">Dicionário de Termos</a>
     </nav>
@@ -46,7 +47,8 @@
         <a class="nav-link" href="#">Escultura</a>
         <a class="nav-link" href="#">Gravura</a>
         <a class="nav-link" href="#">Quadro</a>
-        <a class="nav-link" href="#">Outros</a>
+        <a class="nav-link" href="#">Diplomas/Certificados</a>
+        <a class="nav-link" href="#">Diversos</a>
     </nav>
 </div>
 

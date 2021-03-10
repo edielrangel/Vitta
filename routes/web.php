@@ -11,6 +11,7 @@ use App\Http\Controllers\Biblioteca\CitacoesController;
 use App\Http\Controllers\Biblioteca\DicionarioController;
 use App\Http\Controllers\Biblioteca\EditoraController;
 use App\Http\Controllers\Biblioteca\LivroController;
+use App\Http\Controllers\Biblioteca\ResenhaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Geral\EntidadeController;
 use App\Http\Controllers\Saude\PressaoArterialController;
@@ -40,7 +41,7 @@ Route::post('/teste', function () {
     return view('dashboard.index');
 })->name('teste');
 
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->middleware(['auth'])->group(function(){
     Route::get('/dashboard', function () {
         return view('dashboard.index');
     })->name('dashboard');
@@ -58,6 +59,7 @@ Route::prefix('admin')->group(function(){
         'biblioteca/citacaoArtigo' => CitacaoArtigoController::class,
         'biblioteca/citacaoLivro' => CitacaoLivroController::class,
         'biblioteca/dicionario' => DicionarioController::class,
+        'biblioteca/resenhas' => ResenhaController::class,
     ]);
 
     Route::get('biblioteca/citacoes', [CitacoesController::class, 'index'])->name('citacoes.index');
