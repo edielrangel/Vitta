@@ -63,7 +63,7 @@ class CitacaoLivroController extends Controller
         if (CitacaoLivro::create($data)) {
             Alert::success('Ok', 'Citação salva com sucesso');   
             userLog('Adicionou citação ao Livro '.$data['livro_id'], 'create');
-            $livro = Livro::find($data['livro_id'])->first();
+            $livro = Livro::where('id', '=', $data['artigo_id'])->first();
             return view('dashboard.biblioteca.citacoes.livros.create', ['livro' => $livro]);
         } else {
             Alert::warning('Error', 'Erro ao Salvar citação. tente mais tarde');

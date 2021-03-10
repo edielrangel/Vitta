@@ -47,7 +47,6 @@ class CitacaoArtigoController extends Controller
     {
         $data = $request->all();
         $tags = explode(',', $data['tags']);
-        
         /*
         Salvar as tags, se a mesma já estiver no Banco, não será salva
         */
@@ -62,7 +61,7 @@ class CitacaoArtigoController extends Controller
         if (CitacaoArtigo::create($data)) {
             Alert::success('Ok', 'Citação salva com sucesso');   
             userLog('Adicionou citação ao Artigo '.$data['artigo_id'], 'create');
-            $artigo = Artigo::find($data['artigo_id'])->first();
+            $artigo = Artigo::where('id', '=', $data['artigo_id'])->first();
             return view('dashboard.biblioteca.citacoes.artigos.create', ['artigo' => $artigo]);
         } else {
             Alert::warning('Error', 'Erro ao Salvar citação. tente mais tarde');

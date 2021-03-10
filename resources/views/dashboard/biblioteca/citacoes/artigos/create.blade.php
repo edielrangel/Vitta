@@ -43,7 +43,7 @@
 
                         <div class="form-row">
                             <div class="col-md-12 mb-3">
-                                <label>Artigo Título</label>
+                                <label>Título do Artigo:</label>
                                 @if (isset($artigo))
                                     <input type="hidden" name="artigo_id" value="{{ $artigo->id }}">  
                                     <input type="text" class="form-control" value="{{ $artigo->titulo }}" readonly>
