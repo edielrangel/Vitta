@@ -82,6 +82,7 @@ class CitacaoLivroController extends Controller
         $citacaoLivro = CitacaoLivro::where('livro_id', '=', $id)->paginate(5);
         $livro = DB::table('livros')
                 ->join('citacao_livros', 'citacao_livros.livro_id', '=', 'livros.id')
+                ->where('livros.id', '=', $id)
                 ->select('livros.*')
                 ->first();
         return view('dashboard.biblioteca.citacoes.livros.show', ['citacaoLivro' => $citacaoLivro, 'livro' => $livro]);

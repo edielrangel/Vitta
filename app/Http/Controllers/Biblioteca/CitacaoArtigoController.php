@@ -82,6 +82,7 @@ class CitacaoArtigoController extends Controller
         $citacaoArtigo = CitacaoArtigo::where('artigo_id', '=', $id)->paginate(5);
         $artigo = DB::table('artigos')
                 ->join('citacao_artigos', 'citacao_artigos.artigo_id', '=', 'artigos.id')
+                ->where('artigos.id', '=', $id)
                 ->select('artigos.*')
                 ->first();
         return view('dashboard.biblioteca.citacoes.artigos.show', ['citacaoArtigo' => $citacaoArtigo, 'artigo' => $artigo]);
