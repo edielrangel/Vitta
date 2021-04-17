@@ -45,7 +45,7 @@
     <nav class="sb-sidenav-menu-nested nav">        
         <a class="nav-link" href="#">Correspendência</a>
         <a class="nav-link" href="#">Escultura</a>
-        <a class="nav-link" href="#">Gravura</a>
+        <a class="nav-link" href="{{ route('gravuras.index') }}">Gravuras</a>
         <a class="nav-link" href="#">Quadro</a>
         <a class="nav-link" href="#">Diplomas/Certificados</a>
         <a class="nav-link" href="#">Diversos</a>

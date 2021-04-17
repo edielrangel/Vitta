@@ -60,9 +60,74 @@
 
                     </form>
                 </div>
-                
+
             </div>
         </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-book mr-1"></i>
+                Livros deste(a) Autor
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Título</th>
+                              <th scope="col">Categoria</th>
+                              <th scope="col">Ação</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($livros as $livro)
+                                <tr>
+                                    <th scope="row">{{ $livro->id }}</th>
+                                    <td>{{ $livro->titulo }}</td>
+                                    <td>{{ $livro->categoria }}</td>
+                                    <td><a href="{{ route('livros.edit', $livro->id) }}"><i class="fas fa-eye"></i></a></td>
+                              </tr>
+                            @endforeach                            
+                          </tbody>
+                    </table>
+                </div>                
+            </div>
+        </div>
+
+        @if (!empty($artigos))
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-font mr-1"></i>
+                    Artigos deste(a) Autor
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Ano</th>
+                                <th scope="col">Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($artigos as $artigo)
+                                    <tr>
+                                        <th scope="row">{{ $artigo->id }}</th>
+                                        <td>{{ $artigo->titulo }}</td>
+                                        <td>{{ $artigo->ano }}</td>
+                                        <td><a href="{{ route('artigos.edit', $artigo->id) }}"><i class="fas fa-eye"></i></a></td>
+                                </tr>
+                                @endforeach                            
+                            </tbody>
+                        </table>
+                    </div>                
+                </div>
+            </div>
+        @endif
+
     </div>
     
 @endsection

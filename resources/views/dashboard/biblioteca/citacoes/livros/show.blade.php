@@ -29,7 +29,7 @@
                         <i class="fas fa-plus mr-1"></i>Adicionar Citação ao Livro</a>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Citação</th>

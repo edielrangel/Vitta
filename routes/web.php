@@ -1,20 +1,20 @@
 <?php
 
-use App\Http\Controllers\Biblioteca\ArtigoController;
-use App\Http\Controllers\Biblioteca\AutorArtigoController;
-use App\Http\Controllers\Biblioteca\AutorController;
-use App\Http\Controllers\Biblioteca\AutorLivroController;
-use App\Http\Controllers\Biblioteca\BibliotecaController;
-use App\Http\Controllers\Biblioteca\CitacaoArtigoController;
-use App\Http\Controllers\Biblioteca\CitacaoLivroController;
-use App\Http\Controllers\Biblioteca\CitacoesController;
-use App\Http\Controllers\Biblioteca\DicionarioController;
-use App\Http\Controllers\Biblioteca\EditoraController;
-use App\Http\Controllers\Biblioteca\LivroController;
-use App\Http\Controllers\Biblioteca\ResenhaController;
+use App\Http\Controllers\Biblioteca\{
+    ArtigoController, AutorArtigoController, AutorController,
+    AutorLivroController, BibliotecaController, CitacaoArtigoController,
+    CitacaoLivroController, CitacoesController, DicionarioController,
+    EditoraController, LivroController, ResenhaController
+};
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Geral\EntidadeController;
-use App\Http\Controllers\Saude\PressaoArterialController;
+use App\Http\Controllers\Inventario\{
+    GravuraController
+};
+use App\Http\Controllers\Saude\{
+    PressaoArterialController
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ use App\Http\Controllers\Saude\PressaoArterialController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 /* Route::get('/dashboards', function () {
@@ -46,9 +46,16 @@ Route::prefix('admin')->middleware(['auth'])->group(function(){
         return view('dashboard.index');
     })->name('dashboard');
     
+    Route::resource('entidade', EntidadeController::class);
+
+    /** REFERENTE A SAÚDE */
     Route::resources([
-        'entidade' => EntidadeController::class,
         'saude/pressao' => PressaoArterialController::class,
+    ]);
+    /** FIM SAÚDE */
+    
+    /** REFERENTE A BIBLIOTECA */
+    Route::resources([
         'bibliotecas' => BibliotecaController::class,
         'biblioteca/editoras' => EditoraController::class,
         'biblioteca/autores' => AutorController::class,
@@ -61,12 +68,20 @@ Route::prefix('admin')->middleware(['auth'])->group(function(){
         'biblioteca/dicionario' => DicionarioController::class,
         'biblioteca/resenhas' => ResenhaController::class,
     ]);
-
+    //CITAÇÕES DE ARTIGOS
     Route::get('biblioteca/citacoes', [CitacoesController::class, 'index'])->name('citacoes.index');
     Route::get('biblioteca/citacoes/artigo/{id}', [CitacoesController::class, 'showCitacoesArtigo'])->name('citacoesArtigo.show');
     Route::get('biblioteca/citacoes/artigo/adicionar/{id}', [CitacoesController::class, 'addCitacaoArtigo'])->name('citacoesArtigo.add');
-
+    
+    //CITAÇÕES DE LIVROS
     Route::get('biblioteca/citacoes/livro/{id}', [CitacoesController::class, 'showCitacoesLivro'])->name('citacoesLivro.show');
     Route::get('biblioteca/citacoes/livro/adicionar/{id}', [CitacoesController::class, 'addCitacaoLivro'])->name('citacoesLivro.add');
+    /** FIM BIBLIOTECA */
+
+    /** INÍCIO DE INVENTÁRO */
+    Route::resources([
+        'inventario/gravuras' => GravuraController::class,
+    ]);
+    /** FIM INVENTÁRO */
     
 });

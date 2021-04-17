@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateAutorRequest;
 use App\Models\Autor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -80,7 +81,24 @@ class AutorController extends Controller
     public function edit($id)
     {
         if ($autor = Autor::find($id)) {
-            return view('dashboard.biblioteca.autores.edit', ['autor' => $autor]);
+            
+            $livros = DB::table('autor_livros')
+                    ->where('autor_livros.autor_id', $id)
+                    ->join('livros', 'livros.id', '=', 'autor_livros.livro_id')
+                    ->select('livros.id', 'livros.titulo', 'livros.categoria')
+                    ->paginate();
+                    
+            $artigos = DB::table('autor_artigos')
+                    ->where('autor_artigos.autor_id', $id)
+                    ->join('artigos', 'artigos.id', '=', 'autor_artigos.artigo_id')
+                    ->select('artigos.id', 'artigos.titulo', 'artigos.ano')
+                    ->paginate();
+            
+            return view('dashboard.biblioteca.autores.edit', [
+                    'autor' => $autor,
+                    'livros' => $livros,
+                    'artigos' => $artigos
+                    ]);
         } else {
             Alert::warning('Error', 'Erro ao carregar os dados da autor. Tente novamente mais tarde!');
             return redirect()->route('autores.index');

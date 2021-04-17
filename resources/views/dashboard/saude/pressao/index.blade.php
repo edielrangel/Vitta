@@ -28,7 +28,7 @@
                     <i class="fas fa-plus"></i> Adicionar Aferição</a>
                 </div><p id="demo"></p>
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Data</th>

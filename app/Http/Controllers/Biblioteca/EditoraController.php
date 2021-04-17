@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Biblioteca;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateEditoraRequest;
 use App\Models\Editora;
+use App\Models\Livro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -74,7 +75,11 @@ class EditoraController extends Controller
     public function edit($id)
     {
         if ($editora = Editora::find($id)) {
-            return view('dashboard.biblioteca.editora.edit', ['editora' => $editora]);
+            $livros = Livro::where('editora_id', $id)->paginate();
+            return view('dashboard.biblioteca.editora.edit', [
+                'editora' => $editora, 
+                'livros' => $livros
+                ]);
         } else {
             Alert::warning('Error', 'Erro ao carregar os dados da Editora. Tente novamente mais tarde!');
             return redirect()->route('editoras.index');

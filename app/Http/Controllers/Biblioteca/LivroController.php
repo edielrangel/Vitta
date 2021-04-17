@@ -55,7 +55,7 @@ class LivroController extends Controller
         if ($livro = Livro::create($data)) {
             Alert::success('Ok', 'O Livro '.$data['titulo'].' foi cadastrado com sucesso. Agora vincule o(s) autores(as).');
             userLog('Cadastrou o Livro '.$data['titulo'], 'create');
-            return redirect()->route('autorlivro.show', $livro->id);
+            return redirect()->route('autorLivro.show', $livro->id);
         } else {
             Alert::warning('Error', 'Ocorreu um erro ao tentar cadastrar o Livro. Tente novamente mais tarde.');
             return redirect()->route('livros.index');
@@ -124,7 +124,7 @@ class LivroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return redirect()->route('livros.index');
     }
 
 }
