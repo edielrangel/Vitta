@@ -5,20 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Gravura extends Model
+class Escultura extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'tipo_gravura',
-        'cor',
-        'estado',
-        'artista',
         'titulo',
-        'tiragem',
+        'artista',
+        'material',
+        'estado',
+        'altura',
+        'largura',
+        'profundidade',
+        'peso', 
         'ano_aquisicao',
-        'valor',
-        'acid',
+        'valor', 
         'imagem',
         'thumbnail',
         'observacao',

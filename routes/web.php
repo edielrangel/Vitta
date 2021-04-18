@@ -10,7 +10,8 @@ use App\Http\Controllers\Biblioteca\{
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Geral\EntidadeController;
 use App\Http\Controllers\Inventario\{
-    GravuraController
+    InventarioController, EsculturaController,
+    GravuraController, QuadroController,
 };
 use App\Http\Controllers\Saude\{
     PressaoArterialController
@@ -81,7 +82,10 @@ Route::prefix('admin')->middleware(['auth'])->group(function(){
     /** INÍCIO DE INVENTÁRO */
     Route::resources([
         'inventario/gravuras' => GravuraController::class,
+        'inventario/esculturas' => EsculturaController::class,
+        'inventario/quadros' => QuadroController::class,
     ]);
+    Route::get('inventario/', [InventarioController::class, 'index'])->name('inventario.index');
     /** FIM INVENTÁRO */
     
 });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGravurasTable extends Migration
+class CreateQuadrosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,16 @@ class CreateGravurasTable extends Migration
      */
     public function up()
     {
-        Schema::create('gravuras', function (Blueprint $table) {
+        Schema::create('quadros', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo')->nullable();
-            $table->string('artista');
-            $table->string('tipo_gravura');
-            $table->char('cor', 20);
-            $table->string('estado');
-            $table->char('tiragem', 10);
+            $table->char('titulo', 100);
+            $table->char('artista', 100);
+            $table->char('tecnica', 50);
             $table->char('ano_aquisicao', 4);
             $table->decimal('valor', 10,2)->nullable();
-            $table->char('acid', 5);
-            $table->string('imagem')->nullable();
-            $table->string('thumbnail')->nullable();
+            $table->char('medidas', 10);
+            $table->string('imagem');
+            $table->string('thumbnail');
             $table->string('observacao')->nullable();
             $table->timestamps();
         });
@@ -38,6 +35,6 @@ class CreateGravurasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gravuras');
+        Schema::dropIfExists('quadros');
     }
 }
