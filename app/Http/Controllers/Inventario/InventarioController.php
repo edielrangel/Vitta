@@ -11,11 +11,13 @@ class InventarioController extends Controller
 {
     public function index()
     {
-        $escultura = Escultura::all()->random();
+        /* $escultura = Escultura::all()->random();
         $gravura = Gravura::all()->random();
         return view('dashboard.inventario.index', [
             'escultura' => $escultura,
             'gravura' => $gravura
-        ]);
+        ]); */
+
+        return view('dashboard.inventario.index');
     }
 }
